@@ -91,3 +91,68 @@ document.addEventListener("DOMContentLoaded", () => {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
+/* Projeler Bölümü Genel Düzeni */
+.projects-section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.section-title {
+    color: #ffffff;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    text-shadow: 0 0 10px #00f3ff; /* Başlığa hafif neon efekti */
+}
+
+/* Kartların Yan Yana Dizilmesi (Grid) */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cam Efektli (Glassmorphism) Kart Tasarımı */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05); /* Yarı saydam beyaz arka plan */
+    backdrop-filter: blur(10px); /* Arkadaki renkleri buzlu cam gibi bulanıklaştırır */
+    -webkit-backdrop-filter: blur(10px); /* Safari desteği */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* İnce, belli belirsiz bir çerçeve */
+    border-radius: 15px; /* Yumuşak köşeler */
+    padding: 30px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Karta Fare ile Gelindiğinde (Hover) */
+.glass-card:hover {
+    transform: translateY(-10px); /* Kartı hafifçe yukarı kaldırır */
+    box-shadow: 0 15px 30px rgba(0, 243, 255, 0.2); /* Altına neon mavi bir gölge verir */
+    border-color: rgba(0, 243, 255, 0.5); /* Çerçeve rengi belirginleşir */
+}
+
+.glass-card h3 {
+    color: #00f3ff;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.glass-card p {
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Kullanılan Teknolojilerin Etiket Tasarımı */
+.tech-stack span {
+    display: inline-block;
+    background: rgba(0, 243, 255, 0.1);
+    color: #00f3ff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    border: 1px solid rgba(0, 243, 255, 0.3);
+}

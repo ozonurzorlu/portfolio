@@ -73,3 +73,21 @@ function erase() {
 document.addEventListener("DOMContentLoaded", () => {
     setTimeout(type, 1000);
 });
+/* Daktilo metni ayarları */
+#typewriter-text {
+    color: #ffffff; /* Yazı rengi beyaz olsun ki neonlarla uyumlu dursun */
+    min-height: 40px; /* Yazı silindiğinde sayfanın zıplamasını engeller */
+    margin-bottom: 20px;
+}
+
+/* Yanıp sönen imleç (cursor) efekti */
+#typewriter-text::after {
+    content: '|';
+    color: #00f3ff; /* İmleç neon mavi olsun */
+    animation: blink 0.8s infinite; /* Yanıp sönme animasyonu */
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}

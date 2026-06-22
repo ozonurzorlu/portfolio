@@ -1,0 +1,75 @@
+body {
+    background-color: #0D1117; /* Derin uzay grisi */
+    font-family: 'Fira Code', monospace; /* Terminal/Yazılımcı fontu */
+}
+/* Neon Butonun Varsayılan Hali */
+.neon-button {
+    display: inline-block;
+    padding: 15px 30px;
+    color: #00f3ff; /* Neon Mavi metin rengi */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid #00f3ff; /* Neon mavi çerçeve */
+    border-radius: 5px; /* Hafif yuvarlatılmış köşeler */
+    
+    /* Animasyonun yumuşak bir şekilde gerçekleşmesi için */
+    transition: 0.3s; 
+    
+    /* Metnin etrafında ince bir parlama */
+    text-shadow: 0 0 5px #00f3ff; 
+    
+    /* Kutunun hem dışına hem de İÇİNE (inset) parlama veriyoruz */
+    box-shadow: 0 0 5px #00f3ff,
+                inset 0 0 5px #00f3ff;
+}
+/* Fare İle Üzerine Gelindiğinde (Hover) Çalışacak Efekt */
+.neon-button:hover {
+    background-color: #00f3ff; /* Dışı dolgulu hale gelir */
+    color: #0D1117; /* Yazı rengi okunabilirlik için arka plan rengine döner */
+    
+    /* Dışarıya doğru saçılan güçlü neon ışıkları */
+    box-shadow: 0 0 10px #00f3ff,
+                0 0 20px #00f3ff,
+                0 0 40px #00f3ff;
+    
+    /* Arka plan dolduğu için metin gölgesini kapatıyoruz */
+    text-shadow: none; 
+}
+const textArray = [
+    "> Merhaba, ben Onur Zorlu.", 
+    "> Yazılım Geliştirici.", 
+    "> Sistem ve Web Mimarileri."
+];
+let textIndex = 0;
+let charIndex = 0;
+const typewriterElement = document.getElementById("typewriter-text");
+
+function type() {
+    if (charIndex < textArray[textIndex].length) {
+        typewriterElement.textContent += textArray[textIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, 100); // Yazma hızı (milisaniye)
+    } else {
+        setTimeout(erase, 2000); // Yazdıktan sonra bekleme süresi
+    }
+}
+
+function erase() {
+    if (charIndex > 0) {
+        typewriterElement.textContent = textArray[textIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, 50); // Silme hızı
+    } else {
+        textIndex++;
+        if (textIndex >= textArray.length) textIndex = 0; // Başa dön
+        setTimeout(type, 500);
+    }
+}
+
+// Sayfa yüklendiğinde efekti başlat
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(type, 1000);
+});

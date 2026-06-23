@@ -156,3 +156,135 @@ document.addEventListener("DOMContentLoaded", () => {
     margin-bottom: 8px;
     border: 1px solid rgba(0, 243, 255, 0.3);
 }
+/* Zaman Çizelgesi Genel Ayarları */
+.timeline-section {
+    padding: 80px 20px;
+    max-width: 800px; /* Okunabilirliği artırmak için çok geniş tutmuyoruz */
+    margin: 0 auto;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 30px; /* Çizgi ile kartlar arasındaki boşluk */
+}
+
+/* Dikey Çizgi (Sol tarafta boydan boya inen hat) */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: rgba(0, 243, 255, 0.3); /* Yarı saydam neon mavi */
+}
+
+/* Her Bir Deneyim Bloğu */
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Çizgi Üzerindeki Parlayan Noktalar */
+.timeline-dot {
+    position: absolute;
+    left: -36px; /* Noktayı tam çizginin üstüne hizalar */
+    top: 15px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #0D1117;
+    border: 2px solid #00f3ff;
+    box-shadow: 0 0 10px #00f3ff; /* Noktalara neon glow efekti */
+}
+
+/* Zaman Çizelgesi İçerik Metinleri */
+.timeline-content h3 {
+    color: #00f3ff;
+    margin: 0 0 5px 0;
+}
+
+.timeline-content h4 {
+    color: #ffffff;
+    font-weight: normal;
+    margin: 0 0 10px 0;
+}
+
+.timeline-date {
+    display: inline-block;
+    color: #8a2be2; /* Elektrik Moru ile tarihleri vurguluyoruz */
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.timeline-content p {
+    margin: 0;
+    color: #cccccc;
+}
+/* İletişim Bölümü Genel Ayarları */
+.contact-section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-container p {
+    color: #cccccc;
+    margin-bottom: 30px;
+}
+
+/* Form Elemanlarının Düzeni */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Girdi Alanları (Input ve Textarea) Tasarımı */
+.contact-form input,
+.contact-form textarea {
+    background: rgba(255, 255, 255, 0.05); /* Yarı saydam siyah/gri */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 5px;
+    color: #ffffff;
+    font-family: 'Fira Code', monospace; /* Terminal fontuna devam */
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Kutuya Tıklandığında (Focus) Neon Efekti */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #00f3ff;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+    background: rgba(0, 0, 0, 0.5); /* Yazı yazarken arka planı biraz koyulaştır */
+}
+
+/* Form içindeki butonu tam genişlikte yapalım */
+.contact-form .neon-button {
+    width: 100%;
+    cursor: pointer;
+    background: transparent; /* Varsayılan buton arka planını temizle */
+}
+
+/* Footer (Alt Bilgi) Tasarımı */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* İnce bir üst çizgi */
+    margin-top: 50px;
+    color: #888888;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
